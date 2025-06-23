@@ -1,0 +1,27 @@
+
+.head-container {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid red;
+
+}
+
+
+.img{
+    width: 100px;
+    border: 2px solid blue;
+   
+}
+
+.nav-items > ul {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid pink;
+ 
+}
+
+.nav-items>ul>li {
+    margin: 10px;
+    padding: 10px;
+}

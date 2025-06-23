@@ -1,0 +1,19 @@
+.card{
+     
+}
+
+.image-container{
+   
+}
+.biryani {
+    width: 100px;
+    margin: 20px 2px;
+    text-align: center;
+}
+
+.card {
+    height: 400px;
+    width: 200px;
+    border: 2px solid black;
+    margin: 10px;
+}

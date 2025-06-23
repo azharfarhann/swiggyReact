@@ -1,0 +1,39 @@
+whenever you start a new project
+planning is Important
+
+1. know what you're building.
+2. know why you;re building it
+3. know your project/app audience
+
+Design Before Code
+
+Have the UI design ready.
+Create or receive a UI mock or wireframe
+ 
+
+ wireframe diagram     ==>  in THS repo
+
+ Header
+ -logo
+ -Nav Items
+
+ Body
+ -Search
+ -RestaurantContainer
+ -RestaurantCard
+
+ Footer
+ -Copyright
+ -Links
+ -Address
+
+ Contact
+
+
+
+ // Props in React ?
+
+ Props (short for Properties) are how you pass dynamic data to a functional component.
+
+ example
+ 
