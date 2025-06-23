@@ -17,7 +17,7 @@ Create or receive a UI mock or wireframe
  -logo
  -Nav Items
 
- Body
+ Body i.e content
  -Search
  -RestaurantContainer
  -RestaurantCard
@@ -36,4 +36,3 @@ Create or receive a UI mock or wireframe
  Props (short for Properties) are how you pass dynamic data to a functional component.
 
  example
- 

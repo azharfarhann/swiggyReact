@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../components/Card";
-import "./Home.css";
+// import "./Home.css"
+
 const Home = () => {
   let data = [
     {
@@ -10460,12 +10461,14 @@ const Home = () => {
       },
     },
   ];
+  //   let opt = data.map(x => x.card.card.info.name)
+  //   console.log(opt)
 
   return (
     <>
       <div className="body min-h-screen bg-gray-50 p-4">
         {/* Search Bar */}
-        <div className="search mb-6 max-w-xl mx-auto">
+        <div className="search mb-6 max-w-xl mx-auto ">
           <input
             type="text"
             placeholder="Search restaurants..."
@@ -10475,18 +10478,20 @@ const Home = () => {
 
         {/* Restaurant Cards Grid */}
         <div className="res-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 overflow-y-auto max-h-[100vh] px-2">
-          {data.map((x) => {
-            return (
-              <Card
-                
-                name={info.name}
-                area={info.areaName}
-                imageId={x.card.card.info.cloudinaryImageId}
-                
-              
-              />
-            );
-          })}
+          {/* <Card name="a" city="hyd"/>
+            <Card name="b"city="hyd"/>
+            <Card name="c"city="hyd"/>  */}
+          {/* OR HERE ABOVE WE DONT WANNA PASS THIS DATA 1000 TIMES , SO COMMENT ABOVE AND IMPLEMENT MAP TO data VARIABLE FROM LINE 6. TO RENDER it FOR A DYNAMIC APPROACH, output rendered = ALL ARRAY.length  */}
+          {data.map((x, index) => (
+            <Card
+              key={index}
+              fname={x.card.card.info.name}
+              area={x.card.card.info.address}
+              image={x.card.card.info.cloudinaryImageId}
+              cost={x.card.card.info.cost}
+              time={x.card.card.info.time}
+            />
+          ))}
         </div>
       </div>
     </>
