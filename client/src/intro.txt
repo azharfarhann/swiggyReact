@@ -36,3 +36,32 @@ Create or receive a UI mock or wireframe
  Props (short for Properties) are how you pass dynamic data to a functional component.
 
  example
+
+
+ // React Router DOM
+
+ what is react-router-DOM?
+ It is the standard routing library for React on the web
+
+ It enables:
+ Navigation between different pages/components.
+
+ Dynamic route matching (e.g., /users/:id)
+
+ Nested routing and layouts
+
+ Progammatic Navigation
+
+ Route protection (auth-based)
+
+ Install package
+
+ npm i react-router-dom@latest
+
+ import {BrowserRouter, Routes, Route} from "react-router-dom" in App.jsx file
+ <BrowserRouter>
+  <Routes>
+  <Route>
+  <BrowserRouter/>
+
+>
