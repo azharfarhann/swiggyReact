@@ -3,18 +3,18 @@ import React from "react";
 // import "./Card.css";
 
 const Card = (content) => {
-  // => (content) is coming from calling params i.e content is a variable containing object . you can clg data and see its type i.e let content = {name="a", area="hyd", etc} which is passed in home.jsx <card/>
+  // => (content) is coming from calling params i.e content is a variable containing object . you can clg data and see its type i.e let content = {name="a", area="hyd", etc} which is passed in home.jsx <card/> line ...10481 in card.jsx file
 
-  let { fname, area, cost, time } = content; // Object Destructuring when key name is same . you can replace this in line 6 , ({fname,area}) = content , so replace content & directly pass object params as ({fname,area}).
+  let { fname, area, cost, ratings,image } = content; // Object Destructuring when key name is same . you can replace this in line 6 , ({fname,area}) = content , so replace content & directly pass object params as ({fname,area}).
   let imgUrl = `
-https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${content.image}`;
+https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${image}`;
 
   return (
     <>
       <div className="bg-white rounded-xl shadow hover:shadow-lg transition-all duration-300">
         <img
           className="w-full h-40 object-cover rounded-t-xl"
-          src={imgUrl}
+          src={imgUrl} // called from line 9. Dynamic Images of biryani will be displayed  
           alt="biryani img"
         />
         <div className="p-4">
@@ -31,7 +31,7 @@ https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208
           <p className="text-sm text-gray-600">{area}</p>
           <div className="text-sm mt-2 flex flex-wrap justify-between text-gray-700">
             <span>{cost}</span>
-            <span>{time} mins</span>
+            <span>{ratings}</span>
           </div>
         </div>
       </div>

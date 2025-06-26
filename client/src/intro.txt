@@ -59,9 +59,15 @@ Create or receive a UI mock or wireframe
  npm i react-router-dom@latest
 
  import {BrowserRouter, Routes, Route} from "react-router-dom" in App.jsx file
+ 
  <BrowserRouter>
   <Routes>
-  <Route>
-  <BrowserRouter/>
+
+  <Route path="/">
+  <Route path="/a">
+  <Route path="/b">
+
+  </Routes>
+  </BrowserRouter>
 
 >

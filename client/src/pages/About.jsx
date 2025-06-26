@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Header from '../components/Header'
 
 const About = () => {
   return (
     <div>
+      <Header />
       <h1>This is About Page</h1>
       <Link to="/">
                 <button className='bg-amber-300 rounded-xl m-2 p-2 cursor-pointer'>home2</button>
