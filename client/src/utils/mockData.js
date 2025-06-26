@@ -10426,8 +10426,8 @@ let data = [
   },
 ];
 
-let filteredData = data.filter(i => i.card.card.info.avgRating > 4)
-console.log(filteredData)
+// let filteredData = data.filter(i => i.card.card.info.avgRating > 4)
+// console.log(filteredData)
 
 export default data 
 
