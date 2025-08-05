@@ -71,3 +71,19 @@ Create or receive a UI mock or wireframe
   </BrowserRouter>
 
 >
+
+What is diff btwn parameter and arguement?
+
+function sum(a,b){
+  clg(a+b)
+}
+sum(4,8)  
+
+(a,b)  => parameters
+(4,8)  => arguement
+
+
+useEffect has 2 arguement
+
+1.callBack function
+2. Dependency Array

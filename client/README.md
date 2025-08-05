@@ -1,4 +1,38 @@
-# React + Vite
+── README.md
+└── client
+    ├── .gitignore
+    ├── README.md
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── public
+        └── vite.svg
+    ├── src
+        ├── App.css
+        ├── App.jsx
+        ├── assets
+        │   ├── Image20250623141459.png
+        │   ├── download (1).jpg
+        │   └── download.jpg
+        ├── components
+        │   ├── Card.css
+        │   ├── Card.jsx
+        │   ├── Header.css
+        │   └── Header.jsx
+        ├── index.css
+        ├── intro.txt
+        ├── main.jsx
+        ├── pages
+        │   ├── About.jsx
+        │   ├── Contact.jsx
+        │   ├── Home.css
+        │   ├── Home.jsx
+        │   └── Home2.jsx
+        └── utils
+        │   └── mockData.js
+    └── vite.config.js
+    
+    # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

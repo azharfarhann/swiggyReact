@@ -1,139 +1,75 @@
 import React, { useState } from "react";
 import Card from "../components/Card";
 import data from "../utils/mockData.js";
-// import "./Home.css"
 
 const Home = () => {
-  const [filteredData,setFiltereData] = useState(data);
-  // sort data by cost low -> high
-  function sortLowToHigh(){
-    const copy = data.slice();  // -> no params given i.e Full Copy
-    copy.sort((a,b) =>
-    // substract the two costFortwo values
-    a.card.card.info.costForTwo - b.card.card.info.costForTwo)
-    setFiltereData(copy)
-  } 
+  const [items, setItems] = useState(data);
 
- // sort data by cost High -> Low
- function sortHighToLow(){
-  const copy = data.slice()  // -> no params passed in slice() i.e output = Full Copy
-  copy.sort((a,b)=>
-    b.card.card.info.costForTwo - a.card.card.info.costForTwo
-  );
-  setFiltereData(copy);
- }
-
-  // function topRated(){
-
-  // }
-  // function mediumRated(){
-
-  // }
-  // function avgRated(){
-
-  // }
-  //   let filteredData = data.filter(i => i.card.card.info.avgRating > 4)
-  // console.log(filteredData)
- 
-
-
-  //   let opt = data.map(x => x.card.card.info.name)
-  //   console.log(opt)
+  const reset = () => setItems(data);
+  const sortLowToHigh = () => {
+    const sorted = [...data].sort((a, b) =>
+      a.card.card.info.costForTwo - b.card.card.info.costForTwo
+    );
+    setItems(sorted);
+  };
+  const sortHighToLow = () => {
+    const sorted = [...data].sort((a, b) =>
+      b.card.card.info.costForTwo - a.card.card.info.costForTwo
+    );
+    setItems(sorted);
+  };
+  const filterByRating = (min) => {
+    setItems(data.filter(x => x.card.card.info.avgRating >= min));
+  };
 
   return (
-    <>
-    <button className="bg-emerald-500 p-4 m-4 border border-emerald-500 rounded-lg cursor-pointer hover:border-4 hover:border-emerald-900 transition-all duration-150 ease-in-out" onClick={()=>(setFiltereData(data))}>
-     Home
-    </button>
-    <button className="bg-orange-100 p-4 m-4 border rounded-lg cursor-pointer hover:font-semibold transition-all duration-300 ease-in-out" onClick={sortLowToHigh}>
-     Sort: Cost Low → High
-    </button>
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-5xl mx-auto">
+        {/* Controls */}
+        <div className="flex flex-wrap gap-3 mb-6">
+          <button onClick={reset} className="px-3 py-2 bg-green-500 text-white rounded">
+            Home
+          </button>
+          <button onClick={sortLowToHigh} className="px-3 py-2 bg-blue-200 rounded">
+            Cost Low → High
+          </button>
+          <button onClick={sortHighToLow} className="px-3 py-2 bg-blue-200 rounded">
+            Cost High → Low
+          </button>
+          <button onClick={() => filterByRating(4)} className="px-3 py-2 bg-yellow-200 rounded">
+            4+ Rating
+          </button>
+          <button onClick={() => filterByRating(3.5)} className="px-3 py-2 bg-yellow-200 rounded">
+            3.5+ Rating
+          </button>
+        </div>
 
-    <button className="bg-lime-100 p-4 m-4 border rounded-lg cursor-pointer hover:font-semibold transition-all duration-300 ease-in-out " onClick={sortHighToLow}>
-     Sort: Cost High → Low
-    </button>
-    
-    
-      <button
-        className="bg-red-400 p-4 m-4 border-2 border-red-800 rounded-lg cursor-pointer hover:scale-105 "
-        onClick={()=>setFiltereData(filteredData.filter(i=>i.card.card.info.avgRating > 4))}
-      >
-        Top Rated (4+)
-      </button>
-      <button
-        className="bg-cyan-50 p-4 m-4 border rounded-lg cursor-pointer hover:scale-105"
-        onClick={()=>setFiltereData(data.filter(i=>i.card.card.info.avgRating > 3.5))}
-      >
-        3.5+ Rated
-      </button>
-      <button
-        className="bg-blue-50 p-4 m-4 border rounded-lg cursor-pointer hover:scale-105"
-        onClick={()=>setFiltereData(data.filter(i=>i.card.card.info.avgRating > 3))}
-      >
-        3+ Rated
-      </button>
-      <button
-        className="bg-red-50 p-4 m-4 border rounded-lg cursor-pointer hover:scale-105"
-        onClick={()=>setFiltereData(data.filter(i=>i.card.card.info.avgRating > 2.5))}
-      >
-        2.5+ Rated
-      </button>
-      <div className="body min-h-screen bg-gray-50 p-4">
-        {/* Search Bar */}
-        <div className="search mb-6 max-w-xl mx-auto ">
+        {/* Search */}
+        <div className="mb-6">
           <input
             type="text"
             placeholder="Search restaurants..."
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border border-gray-300 rounded"
           />
         </div>
-        
 
-        {/* Restaurant Cards Grid */}
-        <div className="res-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 overflow-y-auto max-h-[100vh] px-2">
-          {/* <Card name="a" city="hyd"/>
-            <Card name="b"city="hyd"/>
-            <Card name="c"city="hyd"/>  */}
-          {/* OR HERE ABOVE WE DONT WANNA PASS THIS DATA 1000 TIMES , SO COMMENT ABOVE AND IMPLEMENT MAP TO data VARIABLE FROM LINE 6. TO RENDER it FOR A DYNAMIC APPROACH, output rendered for each attribute = ALL ARRAY.length   */}
-          {filteredData.map((x, index) => (
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {items.map((x, i) => (
             <Card
-              key={index}
+              key={i}
               fname={x.card.card.info.name}
               area={x.card.card.info.address}
               image={x.card.card.info.cloudinaryImageId}
-              cost={x.card.card.info.costForTwo}
-              ratings={x.card.card.info.avgRating}
-              price = {x.card.card.info.costForTwo}
-              priceMsg = {x.card.card.info.costForTwoMessage}
+              price={x.card.card.info.costForTwo}
+              rating={x.card.card.info.avgRating}
+              priceMsg={x.card.card.info.costForTwoMessage}
             />
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default Home;
-
-
-
-//  const [filteredData, setFiltereData] = useState(data);
-//   function resFilter() {
-//     const result = data.filter((i) => i.card.card.info.avgRating > 4);
-//     setFiltereData(result);
-//   }
-//   function resFilter1() {
-//     const result = data.filter((x) => {
-//       const ratings = x.card.card.info.avgRating;
-//       return ratings >= 3.5 && ratings <= 4;
-//     });
-//     setFiltereData(result);
-//   }
-//   function resFilter2() {
-//     const result = data.filter((i) => i.card.card.info.avgRating > 3);
-//     setFiltereData(result);
-//   }
-//   function resFilter3() {
-//     const result = data.filter((i) => i.card.card.info.avgRating > 2.5);
-//     setFiltereData(result);
-//   }
